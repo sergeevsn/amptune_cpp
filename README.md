@@ -1,17 +1,17 @@
 # Seismic Amplification Tuning Tool
 
-Инструмент для настройки амплитуд сейсмических данных с интерактивным выделением областей.
+A tool for tuning seismic data amplitudes with interactive area selection.
 
-## Возможности
+## Features
 
-- Загрузка и сохранение SEG-Y файлов
-- Интерактивное выделение областей (многоугольник или прямоугольник)
-- Масштабирование амплитуд с настраиваемым коэффициентом
-- Плавные переходы на границах выделенных областей
-- История операций с возможностью отмены/повтора
-- Визуализация сейсмических данных в виде изображения
+- Load and save SEG-Y files
+- Interactive area selection (polygon or rectangle)
+- Amplitude scaling with adjustable coefficient
+- Smooth transitions at selected area boundaries
+- Operation history with undo/redo capability
+- Seismic data visualization as an image
 
-## Сборка
+## Building
 
 ```bash
 mkdir build
@@ -20,45 +20,45 @@ cmake ..
 make
 ```
 
-## Использование
+## Usage
 
-1. **Загрузка данных**: Нажмите "Load SEG-Y File" для загрузки сейсмических данных
-2. **Выделение области**: 
-   - Выберите режим выделения (Point by Point или Rectangle)
-   - Выделите область на изображении
-   - Нажмите правую кнопку мыши для применения обработки
-3. **Настройка параметров**:
-   - Scale Factor: коэффициент масштабирования (0.1 - 20.0)
-   - Transition Traces: ширина переходной зоны в трассах
-   - Transition Time: ширина переходной зоны в миллисекундах
-   - Transition Mode: режим перехода (inside/outside)
-4. **Сохранение**: Нажмите "Save SEG-Y File" для сохранения результата
+1. **Load Data**: Click "Load SEG-Y File" to load seismic data
+2. **Select Area**: 
+   - Choose selection mode (Point by Point or Rectangle)
+   - Select area on the image
+   - Right-click to apply processing
+3. **Configure Parameters**:
+   - Scale Factor: scaling coefficient (0.1 - 20.0)
+   - Transition Traces: transition zone width in traces
+   - Transition Time: transition zone width in milliseconds
+   - Transition Mode: transition mode (inside/outside)
+4. **Save**: Click "Save SEG-Y File" to save the result
 
-## Управление
+## Controls
 
-- **Левая кнопка мыши**: добавление точек выделения / начало выделения прямоугольника
-- **Правая кнопка мыши**: завершение выделения и применение обработки
-- **Escape**: очистка текущего выделения
-- **Enter**: завершение выделения многоугольника
+- **Left Mouse Button**: add selection points / start rectangle selection
+- **Right Mouse Button**: finish selection and apply processing
+- **Escape**: clear current selection
+- **Enter**: finish polygon selection
 
-## История операций
+## Operation History
 
-- **Undo**: отмена последней операции
-- **Redo**: повтор отмененной операции
-- **Reset**: возврат к исходным данным
+- **Undo**: undo last operation
+- **Redo**: redo undone operation
+- **Reset**: return to original data
 
-## Технические детали
+## Technical Details
 
-- **Язык**: C++11
+- **Language**: C++11
 - **GUI**: Qt5
-- **Формат данных**: SEG-Y
-- **Алгоритм**: Масштабирование с плавными переходами на основе distance transform
+- **Data Format**: SEG-Y
+- **Algorithm**: Scaling with smooth transitions based on distance transform
 
-## Структура проекта
+## Project Structure
 
 ```
 src/
-├── gui/           # Пользовательский интерфейс
-├── amplify/       # Алгоритмы обработки
-└── ioutils/       # Ввод/вывод SEG-Y файлов
+├── gui/           # User interface
+├── amplify/       # Processing algorithms
+└── ioutils/       # SEG-Y file I/O
 ```
