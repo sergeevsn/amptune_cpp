@@ -473,7 +473,12 @@ QVector<QVector<float>> SeismicApp::convertSegyDataToQt(const std::vector<std::v
     QVector<QVector<float>> qtData;
     qtData.reserve(data.size());
     for (const auto& trace : data) {
-        qtData.append(QVector<float>(trace.begin(), trace.end()));
+        QVector<float> qtTrace;
+        qtTrace.reserve(trace.size());
+        for (float value : trace) {
+            qtTrace.append(value);
+        }
+        qtData.append(qtTrace);
     }
     return qtData;
 }
