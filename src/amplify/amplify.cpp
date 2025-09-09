@@ -330,7 +330,7 @@ float calculateRMS(const SeismicData& data, const BooleanMask& mask) {
 
 std::tuple<size_t, size_t, size_t, size_t> findMaskBoundaries(const BooleanMask& mask) {
     if (mask.empty() || mask[0].empty()) {
-        return {0, 0, 0, 0};
+        return std::make_tuple(0, 0, 0, 0);
     }
     
     size_t min_trace = mask.size();
@@ -353,10 +353,10 @@ std::tuple<size_t, size_t, size_t, size_t> findMaskBoundaries(const BooleanMask&
     }
     
     if (!found) {
-        return {0, 0, 0, 0};
+        return std::make_tuple(0, 0, 0, 0);
     }
     
-    return {min_trace, max_trace, min_sample, max_sample};
+    return std::make_tuple(min_trace, max_trace, min_sample, max_sample);
 }
 
 AmplifyResult amplifySeismicWindow(
